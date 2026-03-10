@@ -1,41 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Expense Tracker</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
 
-<body>
+  <body>
     <div class="header">
-        <h1>Hello</h1>
+      <h1>Hello</h1>
 
-        
-        <div class="header-controls">
-            <div class="dropdown">
-                Daily <i class="fas fa-chevron-down"></i>
-            </div>
+      <div class="header-controls">
+        <div class="dropdown">Daily <i class="fas fa-chevron-down"></i></div>
 
-            <div class="date-picker">
-                <i class="fas fa-calendar"></i>
-                Mon Mar 9 2026
-            </div>
-
-            <div class="export-btn">
-                <i class="fas fa-download"></i>
-                Export
-            </div>
+        <div class="date-picker">
+          <i class="fas fa-calendar"></i>
+          Mon Mar 9 2026
         </div>
-        
 
-
+        <div class="export-btn">
+          <i class="fas fa-download"></i>
+          Export
+        </div>
+      </div>
     </div>
 
+    <div class="main-content">
+      <div class="dashboard-grid">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Monthly Income</h3>
+            <button class="card-menu"><i class="fas fa-ellipsis-h"></i></button>
+          </div>
+          <div class="amount income-amount">$549</div>
+          <div class="change">
+            <i class="fas fa-arrow-up"></i>
+            5% vs last month
+          </div>
+        </div>
 
-    
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Monthly Expenses</h3>
+            <button class="card-menu"><i class="fas fa-ellipsis-h"></i></button>
+          </div>
+          <div class="amount income-amount">$890</div>
+          <div class="change">
+            <i class="fas fa-arrow-down"></i>
+            5% vs last month
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
