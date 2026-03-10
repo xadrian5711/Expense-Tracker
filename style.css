@@ -64,7 +64,7 @@ body {
 }
 
 .export-btn {
-  background: green;
+  background: rgb(219, 27, 27);
   color: white;
   border: none;
   border-radius: 8px;
@@ -109,9 +109,9 @@ body {
 .card-menu {
   background: none;
   border: none;
-  color: #f8fafc;
+  color: #6b7280;
   cursor: pointer;
-  padding: 0.25;
+  padding: 0.25rem;
 }
 
 .amount {
@@ -125,4 +125,92 @@ body {
   color: green;
   align-items: center;
   gap: 0.25rem;
+}
+
+.my-card {
+  background: linear-gradient(135deg, green 0%, #10b981);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-chip {
+  width: 32px;
+  height: 24px;
+  background: #ffbb24;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.card-chip::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  background: #f9853d;
+  border-radius: 2px;
+}
+
+.card-number {
+  font-size: 1.25rem;
+  letter-spacing: 0.1rem;
+  margin-bottom: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.card-logo {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+}
+
+.card-logo-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.logo-red {
+  background: #ef4444;
+}
+
+.logo-orange {
+  background: #e59e0b;
+  margin-left: -8px;
+}
+
+/* SPENDING SECTION */
+
+.spending-section {
+  margin-top: 2rem;
+}
+
+.spending-limit {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.spending-used {
+  font-size: 0.875rem;
+  color: #3d4149;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+  height: 6px;
+  background: #f3f4f6;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #ea580c;
+  width: 37%;
+  border-radius: 3px;
 }
