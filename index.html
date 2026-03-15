@@ -14,7 +14,7 @@
   <body>
     <!-- HEADER BAR -->
     <div class="header">
-      <h1>Hello</h1>
+      <h1>InstaFinance</h1>
 
       <div class="header-controls">
         <div class="dropdown">Daily <i class="fas fa-chevron-down"></i></div>
@@ -283,110 +283,139 @@
     <div class="add-buttons">
       <button
         class="fab fab-income"
-        onclick="openIncomeModal"
+        onclick="openIncomeModal()"
         title="Add Income"
       >
         <i class="fas fa-plus"></i>
       </button>
       <button
         class="fab fab-expense"
-        onclick="openExpenseModal"
+        onclick="openExpenseModal()"
         title="Add Expense"
       >
         <i class="fas fa-minus"></i>
       </button>
     </div>
     <!-- add modals! -->
+    <!-- INCOME MODAL -->
     <div id="incomeModal" class="modal">
       <div class="modal-content">
         <div class="modal-header">
           <h2 class="modal-title">Add Income</h2>
-          <buttonclass="close-btn"
-            onclick="closeModal('incomeModal')"
-          >&times;</button>
+          <button class="close-btn" onclick="closeModal('incomeModal')">
+            &times;
+          </button>
         </div>
         <div class="modal-body">
-            <form id="income-form" autocomplete="off">
-                <div class="form-group">
-                    <label class="form-label">Amount</label>
-                    <input type="number" class="form-input" id="incomeAmount" placeholder="Enter Amount" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Category</label>
-                    <select id="incomeCategory" class="form-select" required>
-                        <option value="">Select Category</option>
-                        <option value="salary">Salary</option>
-                        <option value="freelance">Freelance</option>
-                        <option value="buisness">Buisness</option>
-                        <option value="investment">Investment</option>
-                        <option value="other">Other</option>
-
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Description</label>
-                    <input type="text" class="form-input" id="incomeDescription" placeholder="Enter Description" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Date</label>
-                    <input type="date" class="form-input" id="incomeDate" required>
-                </div>
-
-            </form>
+          <form id="income-form" autocomplete="off">
+            <div class="form-group">
+              <label class="form-label">Amount</label>
+              <input
+                type="number"
+                class="form-input"
+                id="incomeAmount"
+                placeholder="Enter Amount"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Category</label>
+              <select id="incomeCategory" class="form-select" required>
+                <option value="">Select Category</option>
+                <option value="salary">Salary</option>
+                <option value="freelance">Freelance</option>
+                <option value="buisness">Buisness</option>
+                <option value="investment">Investment</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Description</label>
+              <input
+                type="text"
+                class="form-input"
+                id="incomeDescription"
+                placeholder="Enter Description"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Date</label>
+              <input type="date" class="form-input" id="incomeDate" required />
+            </div>
+          </form>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-secondary" onclick="closeModal('incomeModal')">Cancel</button>
-            <button class="btn btn-primary" onclick="addIncome('addIncome')">Add Income</button>
-
+          <button class="btn btn-secondary" onclick="closeModal('incomeModal')">
+            Cancel
+          </button>
+          <button class="btn btn-primary" onclick="addIncome('addIncome')">
+            Add Income
+          </button>
         </div>
       </div>
     </div>
-
+    <!-- EXPENSE MODAL  -->
     <div id="expenseModal" class="modal">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 class="modal-title">Add Income</h2>
-          <buttonclass="close-btn"
-            onclick="closeModal('expenseModal')"
-          >&times;</button>
+          <h2 class="modal-title">Add Expense</h2>
+          <button class="close-btn" onclick="closeModal('expenseModal')">
+            &times;
+          </button>
         </div>
         <div class="modal-body">
-            <form id="expense-form" autocomplete="off">
-                <div class="form-group">
-                    <label class="form-label">Amount</label>
-                    <input type="number" class="form-input" id="expenseAmount" placeholder="Enter Amount" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Category</label>
-                    <select id="incomeCategory" class="form-select" required>
-                        <option value="">Select Category</option>
-                        <option value="food">Food</option>
-                        <option value="entertainment">Entertainment</option>
-                        <option value="auto">Auto</option>
-                        <option value="investment">Investment</option>
-                        <option value="other">Other</option>
-
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Description</label>
-                    <input type="text" class="form-input" id="expenseDescription" placeholder="Enter Description" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Date</label>
-                    <input type="date" class="form-input" id="expenseDate" required>
-                </div>
-
-            </form>
+          <form id="expense-form" autocomplete="off">
+            <div class="form-group">
+              <label class="form-label">Amount</label>
+              <input
+                type="number"
+                class="form-input"
+                id="expenseAmount"
+                placeholder="Enter Amount"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Category</label>
+              <select id="incomeCategory" class="form-select" required>
+                <option value="">Select Category</option>
+                <option value="food">Food</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="auto">Auto</option>
+                <option value="investment">Investment</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Description</label>
+              <input
+                type="text"
+                class="form-input"
+                id="expenseDescription"
+                placeholder="Enter Description"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Date</label>
+              <input type="date" class="form-input" id="expenseDate" required />
+            </div>
+          </form>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-secondary" onclick="closeModal('expenseModal')">Cancel</button>
-            <button class="btn btn-primary" onclick="addIncome('addExpense')">Add Expense</button>
-
+          <button
+            class="btn btn-secondary"
+            onclick="closeModal('expenseModal')"
+          >
+            Cancel
+          </button>
+          <button class="btn btn-primary" onclick="addIncome('addExpense')">
+            Add Expense
+          </button>
         </div>
       </div>
     </div>
-
 
     <script src="script.js"></script>
   </body>
