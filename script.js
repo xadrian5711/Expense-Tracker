@@ -41,10 +41,10 @@ function openExpenseModal() {
 
 function closeModal(modalId) {
   document.getElementById(modalId).style.display = 'none';
-  document.body.overflow = 'auto';
+  document.body.style.overflow = 'auto';
 
   if (modalId === 'incomeModal') {
-    document.getElementById('incomForm').reset();
+    document.getElementById('incomeForm').reset();
     document.getElementById('incomeDate').value = today;
   } else {
     document.getElementById('expenseForm').reset();
@@ -88,7 +88,7 @@ function addIncome() {
 
   transactions.unshift(newTransaction);
 
-  monthlyIncome = +amount;
+  monthlyIncome += amount;
   updateDashboard();
 
   updateTransactionsTable();
@@ -120,7 +120,7 @@ function addExpense() {
 
   transactions.unshift(newTransaction);
 
-  monthlyExpenses = +amount;
+  monthlyExpenses += amount;
   updateDashboard();
 
   updateTransactionsTable();
@@ -148,14 +148,14 @@ function updateDashboard() {
 }
 
 function updateTransactionsTable() {
-  const tbody = document.querySelector('.tranactions-table tbody');
+  const tbody = document.querySelector('.transactions-table tbody');
   tbody.innerHTML = '';
 
   const recentTransactions = transactions.slice(0, 10);
 
   recentTransactions.forEach((transaction) => {
     const row = document.createElement('tr');
-    const formattedDate = newDate(transaction.date).toLocaleDateString(
+    const formattedDate = new Date(transaction.date).toLocaleDateString(
       'en-Us',
       {
         month: 'short',
@@ -164,14 +164,14 @@ function updateTransactionsTable() {
       }
     );
     const amountDisplay =
-      transaction > 0
+      transaction.type === 'income'
         ? `+ ${transaction.amount.toLocaleString()}.00`
-        : `-${Math.abs(transaction.amount).toLocaleString}.00`;
+        : `-${Math.abs(transaction.amount).toLocaleString()}.00`;
 
     row.innerHTML = `
               <td>${formattedDate}</td>
               <td>${transaction.category}</td>
-              <td style="color: ${transaction.amount > 0 ? '#10b981' : '#ef4444'}">${amountDisplay}</td>
+              <td style="color: ${transaction.type === 'income' ? '#10b981' : '#ef4444'}">${amountDisplay}</td>
               <td><span class="status-success">${transaction.status}</span></td>
               <td>
                 <button class="action-btn">
@@ -182,3 +182,57 @@ function updateTransactionsTable() {
     tbody.appendChild(row);
   });
 }
+
+function showNotification(message, type = 'success') {
+  const notification = document.createElement('div');
+  notification.style.cssText = `
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1001;
+    animation: slideInRight 0.3 ease;
+    background:${type === 'success' ? '#10b981' : '#ef4444'};
+    `;
+  notification.textContent = message;
+  document.body.appendChild(notification);
+  setTimeout(() => {
+    notification.style.animation = 'slideOutRight 0.3s ease';
+    setTimeout(() => {
+      document.body.removeChild(notification);
+    }, 300);
+  }, 3000);
+}
+
+const style = document.createElement('style');
+style.textContent = `
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}`;
+
+document.head.appendChild(style);
+
+document.addEventListener('DOMContentLoaded', function () {
+  updateTransactionsTable();
+});
